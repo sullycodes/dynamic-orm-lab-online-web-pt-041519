@@ -58,7 +58,6 @@ class Student < InteractiveRecord
   end
 
   def self.find_by(att = {})
-    # binding.pry
     if att.keys.include?(:name)
       sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
       DB[:conn].execute(sql, att[:name])
@@ -70,12 +69,6 @@ class Student < InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE id = ?"
       DB[:conn].execute(sql, att[:id])
     end
-      
   end
   
-  # def self.find_by(att = {})
-  #   sql = "SELECT * FROM #{self.table_name} WHERE ? = ?"
-  #   DB[:conn].execute(sql, att.key, att.value)
-  # end
-
 end
