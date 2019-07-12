@@ -63,8 +63,12 @@ class Student < InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
       DB[:conn].execute(sql, att[:name])
     elsif 
-      att.keys.include?(:name)
-      
+      att.keys.include?(:grade)
+      sql = "SELECT * FROM #{self.table_name} WHERE grade = ?"
+      DB[:conn].execute(sql, att[:grade])
+    else
+      sql = "SELECT * FROM #{self.table_name} WHERE id = ?"
+      DB[:conn].execute(sql, att[:id])
     end
       
   end
