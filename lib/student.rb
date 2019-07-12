@@ -62,6 +62,9 @@ class Student < InteractiveRecord
     if att.keys.include?(:name)
       sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
       DB[:conn].execute(sql, att[:name])
+    elsif 
+      att.keys.include?(:name)
+      
     end
       
   end
